@@ -31,12 +31,13 @@
     Time Complexity: O(n)
 
     Solution description:
-    The sequence of numbers will be up to the number N + 1 with one missing number. We sum up all numbers from 1 to
-    N + 1. And then iterating through the array subtract current element from the sum. The rest in the sum will be the
+    The sequence of numbers will be up to the number N + 1 with one missing number. 
+    - We sum up all numbers from 1 to N + 1.
+    - Then iterating through the array we subtract the current element from the sum. The rest in the sum will be the
     missing number.
 
     Notice:
-    Use long for the sum, because using int with a big N there is an overflow posssible.
+    Use long for the sum. Using int with a big N there is an overflow posssible.
  */
 
 class Solution {
