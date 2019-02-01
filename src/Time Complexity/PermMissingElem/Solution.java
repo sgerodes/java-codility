@@ -27,18 +27,18 @@
  */
 
 /*
-    SCORE: 100 / 100 / 100
-    Time Complexity: O(n)
-    Space Complexity: O(1)
+        SCORE: 100 / 100 / 100
+        Time Complexity: O(n)
+        Space Complexity: O(1)
 
-    Solution description:
-    The sequence of numbers will be up to the number N + 1 with one missing number. 
-    - We sum up all numbers from 1 to N + 1.
-    - Then iterating through the array we subtract the current element from the sum. The rest in the sum will be the
-    missing number.
+        Solution description:
+        The sequence of numbers will be up to the number N + 1 with one missing number.
+        - We sum up all numbers from 1 to N + 1.
+        - Then iterating through the array we subtract the current element from the sum. The rest in the sum will be the
+        missing number.
 
-    Notice:
-    Use long for the sum. Using int with a big N there is an overflow posssible.
+        Notice:
+        Use long for the sum. Using int with a big N there is an overflow posssible.
  */
 
 class Solution {
