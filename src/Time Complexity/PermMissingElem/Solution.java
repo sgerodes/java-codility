@@ -29,6 +29,7 @@
 /*
     SCORE: 100 / 100 / 100
     Time Complexity: O(n)
+    Space Complexity: O(1)
 
     Solution description:
     The sequence of numbers will be up to the number N + 1 with one missing number. 
