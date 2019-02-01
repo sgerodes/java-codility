@@ -39,7 +39,6 @@
 
         Notice:
         Use long for the sum. Using int with a big N there is an overflow posssible.
-
  */
 
 class Solution {
