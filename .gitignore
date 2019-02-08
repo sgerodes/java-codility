@@ -26,4 +26,4 @@ hs_err_pid*
 # Intelij Idea
 .idea
 
-java-codility.iml
+*.iml
