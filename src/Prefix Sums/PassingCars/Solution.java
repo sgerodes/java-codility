@@ -51,7 +51,9 @@
             - count east cars
             - if a west car comes that mean it will pass all counted east cars, elevate "passed" accordingly
 
- */class Solution {
+ */
+
+class Solution {
     public int solution(int[] A) {
         int MAX_COUNT = 1000000000;
 
@@ -69,7 +71,7 @@
         return passed;
     }
 
-    public boolean isWest(int car) {
+    private boolean isWest(int car) {
         return car == 1;
     }
 }
