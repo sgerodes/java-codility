@@ -60,7 +60,17 @@
         Space Complexity: O(N)
 
         Solution description:
-        -
+        - Create the counter Array
+        - Store the maximum of allready seen elements in the Array (currentMax)
+        - appliedMax is the currentMax to the time of the last applience of  the "max counter" rule
+        Algorithm:
+        - Iterate throug the imput array
+        - if "max counter" rule: elevate appliedMax to the value of currentMax
+        - else increment according counter,
+            but first check if the current counter should be elevated to the level of appliedMax
+            adjust currentMax if needed
+        - iterate over Counter Array. Adjust counter if it is smaller than appliedMax
+
  */
 
 class Solution {
@@ -69,11 +79,13 @@ class Solution {
         int appliedMax = 0;
         int[] counters = new int[N];
         for (int elem : A){
-            if (elem > N){
+            if (elem == N + 1){
                 appliedMax = currentMax;
             } else {
-                counters[elem-1] = Math.max(counters[elem-1], appliedMax) + 1;
-                currentMax = Math.max(counters[elem-1], currentMax);
+                int counterIndex = elem - 1;
+                if (counters[counterIndex] < appliedMax) counters[counterIndex] = appliedMax;
+                counters[counterIndex]++;
+                if (counters[counterIndex] > currentMax) currentMax = counters[counterIndex];
             }
         }
         for (int i = 0; i < counters.length; ++i){
