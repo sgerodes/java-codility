@@ -19,7 +19,7 @@ class Solution {
         System.out.println(solution.solution2(arr));
     }
 
-    public int solution2(int[] A) {
+    public int solution(int[] A) {
         int sliceSum = 0;
         int minIndex = Integer.MAX_VALUE;
         double absoluteMinAverage = Double.MAX_VALUE;
