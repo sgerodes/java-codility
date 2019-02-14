@@ -17,8 +17,9 @@
 		N is an integer within the range [0..100,000];
 		each element of array A is an integer within the range [−1,000,000..1,000,000].
 */
+
 /*
-        SCORE:   / 100 / 100
+        SCORE:  100 / 100 / 100
         Time Complexity: O(n)
         Space Complexity: O(n)
 
@@ -27,7 +28,6 @@
         - the Set automatically stores only distinct vallues
 
  */
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -36,5 +36,33 @@ class Solution {
         Set<Integer> distinct = new HashSet<>();
         for (int i : A) distinct.add(i);
         return distinct.size();
+    }
+}
+
+
+/*
+        SCORE:  100 / 100 / 100
+        Time Complexity: O(nlogn)
+        Space Complexity: O(1)
+
+        Solution description:
+        - sort Array
+        - if array.length != 0, start by 1 distinct, because the first value is not counted in the loop
+        - iterate and count changes in the sequence
+
+ */
+import java.util.Arrays;
+
+class Solution {
+    public int solution(int[] A) {
+        if (A.length == 0) return 0;
+        Arrays.sort(A);
+        int distinct = 1;
+        for (int i = 0; i < A.length - 1; ++i){
+            if (A[i] != A[i+1]) {
+                ++distinct;
+            }
+        }
+        return distinct;
     }
 }
