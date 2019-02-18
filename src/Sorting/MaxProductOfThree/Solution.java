@@ -63,12 +63,81 @@ class Solution {
         Arrays.sort(A);
         int last = A.length - 1;
 
-        if (A[last] > 0 && A[0] < 0 && A[1] < 0){
-            int prodSecondThirdLast = A[last - 1] * A[last - 2];
-            int prodFirstTwo = A[0] * A[1];
-            return A[last] * Math.max(prodFirstTwo, prodSecondThirdLast);
+        if (A[last] > 0 && A[0] < 0 && A[1] < 0) {
+            int prodSecondThirdBiggest = A[last - 1] * A[last - 2];
+            int prodTwoSmallest = A[0] * A[1];
+            return A[last] * Math.max(prodTwoSmallest, prodSecondThirdBiggest);
         }
 
-        return Arrays.stream(Arrays.copyOfRange(A, A.length-3, A.length)).reduce(1, (a,b) -> a*b);
+        return Arrays.stream(Arrays.copyOfRange(A, A.length - 3, A.length)).reduce(1, (a, b) -> a * b);
+    }
+}
+
+
+/*
+        SCORE:  100 / 100 / 100
+        Time Complexity: O(n)
+        Space Complexity: O(1)
+
+        Solution description:
+        - The algorithm is the same as before, but
+            we calculate the MINs and MAXes in O(n) time complexity instead of sorting
+ */
+
+class Solution {
+    public int solution(int[] A) {
+
+        int[] twoSmallestAndThreeBiggest = calculateSmallestAndBiggest(A);
+
+        int biggest = twoSmallestAndThreeBiggest[4];
+        int secondBiggest = twoSmallestAndThreeBiggest[3];
+        int thirdBiggest = twoSmallestAndThreeBiggest[2];
+        int secondSmallest = twoSmallestAndThreeBiggest[1];
+        int smallest = twoSmallestAndThreeBiggest[0];
+
+
+        if (biggest > 0 && smallest < 0 && secondSmallest < 0) {
+            int prodSecondThirdBiggest = secondBiggest * thirdBiggest;
+            int prodTwoSmallest = smallest * secondSmallest;
+            return biggest * Math.max(prodTwoSmallest, prodSecondThirdBiggest);
+        }
+
+        return biggest * secondBiggest * thirdBiggest;
+    }
+
+    private int[] calculateSmallestAndBiggest(int[] A) {
+
+        int biggest = Integer.MIN_VALUE;
+        int secondBiggest = Integer.MIN_VALUE;
+        int thirdBiggest = Integer.MIN_VALUE;
+
+        int secondSmallest = Integer.MAX_VALUE;
+        int smallest = Integer.MAX_VALUE;
+
+        for (int num : A) {
+            if (num >= thirdBiggest) {
+                if (num >= secondBiggest) {
+                    thirdBiggest = secondBiggest;
+                    if (num >= biggest) {
+                        secondBiggest = biggest;
+                        biggest = num;
+                    } else {
+                        secondBiggest = num;
+                    }
+                } else {
+                    thirdBiggest = num;
+                }
+            }
+            if (num <= secondSmallest) {
+                if (num <= smallest) {
+                    secondSmallest = smallest;
+                    smallest = num;
+                } else {
+                    secondSmallest = num;
+                }
+            }
+
+        }
+        return new int[]{smallest, secondSmallest, thirdBiggest, secondBiggest, biggest};
     }
 }
