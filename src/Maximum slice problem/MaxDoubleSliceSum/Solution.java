@@ -1,5 +1,6 @@
 /*
         Task description
+
         A non-empty array A consisting of N integers is given.
 
         A triplet (X, Y, Z), such that 0 ≤ X < Y < Z < N, is called a double slice.
@@ -49,16 +50,33 @@
 
 /*
         SCORE:
-        Time Complexity: O()
-        Space Complexity: O()
-
+        Time Complexity: O(n)
+        Space Complexity: O(1)
         Solution description:
+
  */
 
 class Solution {
 
-    public int solution(int[] A) {
+	public int solution(int[] A) {
+		int currSum = 0;
+		int maxDoubleSliceSum = 0;
 
-    }
+		int localMin = A[1];
+
+		for (int i = 1; i < A.length - 1; ++i) {
+			localMin = Math.min(localMin, A[i]);
+			if (currSum - localMin + A[i] >= 0){
+				currSum += A[i];
+			} else {
+				currSum = A[i];
+				localMin = A[i];
+			}
+
+			maxDoubleSliceSum = Math.max(maxDoubleSliceSum, currSum - localMin);
+		}
+
+		return maxDoubleSliceSum;
+	}
 
 }
