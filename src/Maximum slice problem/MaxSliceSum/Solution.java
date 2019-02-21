@@ -27,14 +27,14 @@
  */
 
 /*
-        SCORE: 100 / 100
+        SCORE: 100 / 100 / 100
         Time Complexity: O(n)
         Space Complexity: O(1)
 
         Solution description:
         - we assume that the maximum sum of a slice ending in positioni equals maxEnding
         - when a slice has a bigger slice then update maxSlice
-        Notice:
+        Note:
             use long for the variables, ints could underflow if using Integer.MIN_VALUE and an array {-10} comes
  */
 
