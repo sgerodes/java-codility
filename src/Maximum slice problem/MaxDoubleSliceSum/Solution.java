@@ -1,51 +1,52 @@
 /*
         Task description
-		A non-empty array A consisting of N integers is given.
 
-		A triplet (X, Y, Z), such that 0 ≤ X < Y < Z < N, is called a double slice.
+        A non-empty array A consisting of N integers is given.
 
-		The sum of double slice (X, Y, Z) is the total of A[X + 1] + A[X + 2] + ... + A[Y − 1] + A[Y + 1] + A[Y + 2] +
-		 ... + A[Z − 1].
+        A triplet (X, Y, Z), such that 0 ≤ X < Y < Z < N, is called a double slice.
 
-		For example, array A such that:
+        The sum of double slice (X, Y, Z) is the total of A[X + 1] + A[X + 2] + ... + A[Y − 1] + A[Y + 1] + A[Y + 2] + ... + A[Z − 1].
 
-			A[0] = 3
-			A[1] = 2
-			A[2] = 6
-			A[3] = -1
-			A[4] = 4
-			A[5] = 5
-			A[6] = -1
-			A[7] = 2
-		contains the following example double slices:
+        For example, array A such that:
 
-		double slice (0, 3, 6), sum is 2 + 6 + 4 + 5 = 17,
-		double slice (0, 3, 7), sum is 2 + 6 + 4 + 5 − 1 = 16,
-		double slice (3, 4, 5), sum is 0.
-		The goal is to find the maximal sum of any double slice.
+            A[0] = 3
+            A[1] = 2
+            A[2] = 6
+            A[3] = -1
+            A[4] = 4
+            A[5] = 5
+            A[6] = -1
+            A[7] = 2
+        contains the following example double slices:
 
-		Write a function:
+        double slice (0, 3, 6), sum is 2 + 6 + 4 + 5 = 17,
+        double slice (0, 3, 7), sum is 2 + 6 + 4 + 5 − 1 = 16,
+        double slice (3, 4, 5), sum is 0.
+        The goal is to find the maximal sum of any double slice.
 
-		class Solution { public int solution(int[] A); }
+        Write a function:
 
-		that, given a non-empty array A consisting of N integers, returns the maximal sum of any double slice.
+        class Solution { public int solution(int[] A); }
+        that, given a non-empty array A consisting of N integers, returns the maximal sum of any double slice.
 
-		For example, given:
+        For example, given:
 
-			A[0] = 3
-			A[1] = 2
-			A[2] = 6
-			A[3] = -1
-			A[4] = 4
-			A[5] = 5
-			A[6] = -1
-			A[7] = 2
-		the function should return 17, because no double slice of array A has a sum of greater than 17.
+            A[0] = 3
+            A[1] = 2
+            A[2] = 6
+            A[3] = -1
+            A[4] = 4
+            A[5] = 5
+            A[6] = -1
+            A[7] = 2
+        the function should return 17, because no double slice of array A has a sum of greater than 17.
 
-		Write an efficient algorithm for the following assumptions:
+        Write an efficient algorithm for the following assumptions:
 
-		N is an integer within the range [3..100,000];
-*/
+        N is an integer within the range [3..100,000];
+        each element of array A is an integer within the range [−10,000..10,000].
+
+ */
 
 /*
         SCORE:
